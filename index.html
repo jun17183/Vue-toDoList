@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="todolist.css" />
+  <script src="./jquery.min.js"></script>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  <script src="./app.js"></script>
+  <title>To Do List</title>
+</head>
+<body>
+  <div id="app">
+    <div id="title">To Do List</div>
+    <div id="input_wrap">
+      <input type="text" v-model="toDo" placeholder="Input To Do List" v-on:keyup.enter="insertController()">
+      <button v-on:click="insertController()">Inst</button>
+    </div>
+    <div class="toDo_item" v-for="(item, index) in toDoList" :key="index">
+      <todo-item v-bind:to-do="item.toDo" v-bind:id="item.id" v-bind:toggle="item.toggle" v-bind:done="item.done"></todo-item>
+    </div>
+    <!-- html => kebab case -->
+    <!-- js => camel case --> 
+  </div>
+</body>
+</html>
